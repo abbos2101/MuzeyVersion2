@@ -1,9 +1,9 @@
-package abbos2101.muzey.adapter
+package abbos2101.muzey.adapter.main
 
 import abbos2101.Stroitelstvo.database.model.MainModel
 import abbos2101.muzey.R
-import abbos2101.muzey.ui.MainPresenter
-import android.content.Context
+import abbos2101.muzey.common.lang_id
+import abbos2101.muzey.ui.main.MainPresenter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,12 +44,17 @@ class MainAdapter(
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val mainHolder = MainHolder(presenter,list)
-        mainHolder.bindHolder(holder,position)
+        val mainHolder = MainHolder(presenter, list)
+        mainHolder.bindHolder(holder, position)
     }
 
     fun setNewList(newList: ArrayList<MainModel>) {
         this.list = newList
+        this.notifyDataSetChanged()
+    }
+
+    fun setLanguage(langId: Int) {
+        lang_id = langId
         this.notifyDataSetChanged()
     }
 }

@@ -5,6 +5,6 @@ import androidx.room.*
 
 @Dao
 interface DatabaseDao {
-    @Query("select * from content where language_id=:lang_id")
-    fun loadMainList(lang_id: Int): MutableList<MainModel>
+    @Query("select * from content")
+    fun loadMainList(): MutableList<MainModel>
 }

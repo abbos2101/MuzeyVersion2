@@ -7,13 +7,16 @@ import androidx.room.PrimaryKey
 data class MainModel(
     @PrimaryKey(autoGenerate = true)
     val _id: Int = 0,
-    val language_id: Int,
-    val title: String,
-    val description: String,
+    val uz_title: String,
+    val uz_description: String,
+    val uz_text: String,
+    val ru_title: String,
+    val ru_description: String,
+    val ru_text: String,
+    val en_title: String,
+    val en_description: String,
+    val en_text: String,
     val item_image: String,
-    val data_text: String,
-    val data_image: String,
-    val data_gallery: String,
     val count_view: Int,
     val count_like: Int,
     val count_dislike: Int
