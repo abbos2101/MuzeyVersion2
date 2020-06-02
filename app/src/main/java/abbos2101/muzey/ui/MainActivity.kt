@@ -16,11 +16,18 @@ class MainActivity : AppCompatActivity(), MainAction {
         setContentView(R.layout.activity_main)
 
         init()
+        setEvent()
     }
 
     private fun init() {
         main_rv.adapter = adapter
-        presenter.loadData()
+        presenter.loadData(1)
+    }
+
+    private fun setEvent() {
+        main_img_uz.setOnClickListener { presenter.loadData(1) }
+        main_img_ru.setOnClickListener { presenter.loadData(2) }
+        main_img_en.setOnClickListener { presenter.loadData(3) }
     }
 
     override fun onUpdateList(newList: ArrayList<MainModel>) {

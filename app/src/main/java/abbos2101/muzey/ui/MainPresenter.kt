@@ -9,9 +9,17 @@ class MainPresenter(
 ) {
     private val mainAction by lazy { ctx as MainAction }
     private val database by lazy { DatabaseProvider.instance(ctx).databaseDao() }
+    private var language_id = 0
 
-    fun loadData() {
-        val newList = database.loadMainList(1)
-        mainAction.onUpdateList(newList as ArrayList<MainModel>)
+    fun loadData(lang_id: Int) {
+        if (lang_id != this.language_id) {
+            this.language_id = lang_id
+            val newList = database.loadMainList(lang_id)
+            mainAction.onUpdateList(newList as ArrayList<MainModel>)
+        }
+    }
+
+    fun itemClick(){
+
     }
 }

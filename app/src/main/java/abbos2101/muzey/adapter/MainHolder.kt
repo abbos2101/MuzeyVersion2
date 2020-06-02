@@ -1,11 +1,11 @@
 package abbos2101.muzey.adapter
 
 import abbos2101.Stroitelstvo.database.model.MainModel
+import abbos2101.muzey.R
 import abbos2101.muzey.ui.MainPresenter
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.text.Html
-import com.squareup.picasso.Picasso
+import android.view.animation.AnimationUtils
 import java.io.InputStream
 
 class MainHolder(
@@ -23,6 +23,10 @@ class MainHolder(
         holder.tv_countview?.setText("${model.count_view}")
         holder.img?.setBackgroundDrawable(drawableImg)
         holder.rb?.rating = rating
+        holder.ll?.startAnimation(AnimationUtils.loadAnimation(presenter.ctx, R.anim.alpha))
+
+
+        //holder.ll?.setOnClickListener { presenter. }
     }
 
     private fun getDrawableFromAssets(context: Context, path: String?): Drawable? {
