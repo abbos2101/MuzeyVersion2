@@ -1,30 +1,55 @@
 package abbos2101.muzey.adapter
 
+import abbos2101.Stroitelstvo.database.model.MainModel
 import abbos2101.muzey.R
+import abbos2101.muzey.ui.MainPresenter
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
-    class ViewHolder : RecyclerView.ViewHolder {
-        constructor(itemView: View) : super(itemView)
+class MainAdapter(
+    private val presenter: MainPresenter
+) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-        val img: TextView by lazy { itemView.findViewById(R.id.item_main_img) }
-        val rb: TextView by lazy { itemView.findViewById(R.id.item_main_rb) }
-        val tv_title: TextView by lazy { itemView.findViewById(R.id.item_main_tv_title) }
-        val tv_description: TextView by lazy { itemView.findViewById(R.id.item_main_tv_description) }
+    class ViewHolder : RecyclerView.ViewHolder {
+        var img: ImageView? = null
+        var ll: LinearLayout? = null
+        var rb: RatingBar? = null
+        var tv_title: TextView? = null
+        var tv_description: TextView? = null
+        var tv_countview: TextView? = null
+
+        constructor(itemView: View) : super(itemView) {
+            img = itemView.findViewById(R.id.item_main_img)
+            ll = itemView.findViewById(R.id.item_main_ll)
+            rb = itemView.findViewById(R.id.item_main_rb)
+            tv_title = itemView.findViewById(R.id.item_main_tv_title)
+            tv_description = itemView.findViewById(R.id.item_main_tv_description)
+            tv_countview = itemView.findViewById(R.id.item_main_tv_countview)
+        }
     }
 
+    private var list: ArrayList<MainModel> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val mainHolder = MainHolder(presenter,list)
+        mainHolder.bindHolder(holder,position)
+    }
 
+    fun setNewList(newList: ArrayList<MainModel>) {
+        this.list = newList
+        this.notifyDataSetChanged()
     }
 }
