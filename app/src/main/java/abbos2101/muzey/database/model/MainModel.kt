@@ -17,7 +17,5 @@ data class MainModel(
     val en_description: String,
     val en_text: String,
     val item_image: String,
-    val count_view: Int,
-    val count_like: Int,
-    val count_dislike: Int
+    var count_view: Int
 )

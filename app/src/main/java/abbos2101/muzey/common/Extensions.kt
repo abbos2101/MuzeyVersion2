@@ -20,10 +20,3 @@ fun getDrawableFromAssets(context: Context, path: String?): Drawable? {
     }
     return null
 }
-
-fun getRating(count_like: Int, count_dislike: Int): Float {
-    val summ = count_like + count_dislike
-    if (summ != 0)
-        return (5 * count_like / summ).toFloat()
-    return 0F
-}

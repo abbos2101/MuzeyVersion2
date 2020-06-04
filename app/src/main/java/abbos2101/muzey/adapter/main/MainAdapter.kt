@@ -20,7 +20,6 @@ class MainAdapter(
     class ViewHolder : RecyclerView.ViewHolder {
         var img: ImageView? = null
         var ll: LinearLayout? = null
-        var rb: RatingBar? = null
         var tv_title: TextView? = null
         var tv_description: TextView? = null
         var tv_countview: TextView? = null
@@ -28,7 +27,6 @@ class MainAdapter(
         constructor(itemView: View) : super(itemView) {
             img = itemView.findViewById(R.id.item_main_img)
             ll = itemView.findViewById(R.id.item_main_ll)
-            rb = itemView.findViewById(R.id.item_main_rb)
             tv_title = itemView.findViewById(R.id.item_main_tv_title)
             tv_description = itemView.findViewById(R.id.item_main_tv_description)
             tv_countview = itemView.findViewById(R.id.item_main_tv_countview)
