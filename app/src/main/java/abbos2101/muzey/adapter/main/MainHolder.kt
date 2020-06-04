@@ -4,11 +4,7 @@ import abbos2101.Stroitelstvo.database.model.MainModel
 import abbos2101.muzey.R
 import abbos2101.muzey.common.*
 import abbos2101.muzey.ui.main.MainPresenter
-import android.os.Build
-import android.text.style.BackgroundColorSpan
 import android.view.animation.AnimationUtils
-import com.squareup.picasso.Picasso
-import com.squareup.picasso.Transformation
 
 class MainHolder(
     private val presenter: MainPresenter,

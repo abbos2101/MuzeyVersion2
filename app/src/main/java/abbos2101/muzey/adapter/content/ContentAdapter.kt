@@ -35,6 +35,8 @@ class ContentAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contentHolder = ContentHolder(presenter, list)
         contentHolder.bindHolder(holder, position)
+        if (position != list.size - 1) presenter.setVisibleGallery(View.GONE)
+        else presenter.setVisibleGallery(View.VISIBLE)
     }
 
     fun setNewList(newList: ArrayList<ContentModel>) {

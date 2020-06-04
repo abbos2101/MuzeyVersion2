@@ -6,14 +6,13 @@ import abbos2101.muzey.common.common_position
 import abbos2101.muzey.common.isAssetExists
 import abbos2101.muzey.database.model.ContentModel
 import android.content.Context
-import android.content.Intent
 
 class ContentPresenter(
     val ctx: Context
 ) {
     private val contentAction by lazy { ctx as ContentAction }
 
-    fun loadData() {
+    fun loadMainData() {
         val list = ArrayList<ContentModel>()
         if (common_model != null) {
             list.add(
@@ -30,11 +29,28 @@ class ContentPresenter(
                 img++
             } else break
         }
-        contentAction.onUpdateList(list)
+        contentAction.onUpdateMainList(list)
+    }
+
+    fun loadGalleryData() {
+        val list: ArrayList<String> = ArrayList()
+        var img = 1
+        while (true) {
+            val imgAssetsUrl = "image/items/item${common_position + 1}/gallery/img${img}.jpg"
+            if (isAssetExists(ctx, imgAssetsUrl)) {
+                list.add(imgAssetsUrl)
+                img++
+            } else break
+        }
+        contentAction.onUpdateGalleryList(list)
     }
 
     fun updateCountView() {
         common_model!!.count_view++
         DatabaseProvider.instance(ctx).databaseDao().updateMainList(common_model!!)
+    }
+
+    fun setVisibleGallery(visible: Int) {
+        contentAction.onVisibleGallery(visible)
     }
 }

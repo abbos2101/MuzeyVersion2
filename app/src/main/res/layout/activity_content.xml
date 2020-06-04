@@ -25,13 +25,21 @@
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/content_rv"
+        android:id="@+id/content_rv_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:spanCount="1"
         tools:listitem="@layout/item_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/content_rv_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_content_gallery" />
 
     <LinearLayout
         android:layout_width="match_parent"
