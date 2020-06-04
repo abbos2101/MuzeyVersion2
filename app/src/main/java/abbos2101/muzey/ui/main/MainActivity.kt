@@ -3,6 +3,9 @@ package abbos2101.muzey.ui.main
 import abbos2101.Stroitelstvo.database.model.MainModel
 import abbos2101.muzey.R
 import abbos2101.muzey.adapter.main.MainAdapter
+import abbos2101.muzey.common.lang_en
+import abbos2101.muzey.common.lang_ru
+import abbos2101.muzey.common.lang_uz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,18 +20,13 @@ class MainActivity : AppCompatActivity(), MainAction {
         setContentView(R.layout.activity_main)
 
         init()
-        setEvent()
     }
 
     private fun init() {
         main_rv.adapter = adapter
-        presenter.loadData()
-    }
-
-    private fun setEvent() {
-        main_img_uz.setOnClickListener { adapter.setLanguage(1) }
-        main_img_ru.setOnClickListener { adapter.setLanguage(2) }
-        main_img_en.setOnClickListener { adapter.setLanguage(3) }
+        main_img_uz.setOnClickListener { adapter.setLanguage(lang_uz) }
+        main_img_ru.setOnClickListener { adapter.setLanguage(lang_ru) }
+        main_img_en.setOnClickListener { adapter.setLanguage(lang_en) }
     }
 
     override fun onUpdateList(newList: ArrayList<MainModel>) {
@@ -37,5 +35,10 @@ class MainActivity : AppCompatActivity(), MainAction {
 
     override fun onStartIntent(intent: Intent) {
         startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.loadData()
     }
 }

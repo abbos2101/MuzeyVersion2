@@ -1,7 +1,9 @@
 package abbos2101.muzey.adapter.content
 
 import abbos2101.muzey.R
+import abbos2101.muzey.common.lang_id
 import abbos2101.muzey.database.model.ContentModel
+import abbos2101.muzey.ui.content.ContentPresenter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
+class ContentAdapter(
+    private val presenter: ContentPresenter
+) : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
     class ViewHolder : RecyclerView.ViewHolder {
         var img: ImageView? = null
         var tv: TextView? = null
@@ -29,7 +33,16 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val contentHolder = ContentHolder(list)
+        val contentHolder = ContentHolder(presenter, list)
         contentHolder.bindHolder(holder, position)
+    }
+
+    fun setNewList(newList: ArrayList<ContentModel>) {
+        this.list = newList
+    }
+
+    fun setLanguage(langId: Int) {
+        lang_id = langId
+        this.notifyDataSetChanged()
     }
 }

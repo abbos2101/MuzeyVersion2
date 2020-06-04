@@ -2,10 +2,13 @@ package abbos2101.muzey.adapter.main
 
 import abbos2101.Stroitelstvo.database.model.MainModel
 import abbos2101.muzey.R
-import abbos2101.muzey.common.getDrawableFromAssets
-import abbos2101.muzey.common.lang_id
+import abbos2101.muzey.common.*
 import abbos2101.muzey.ui.main.MainPresenter
+import android.os.Build
+import android.text.style.BackgroundColorSpan
 import android.view.animation.AnimationUtils
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Transformation
 
 class MainHolder(
     private val presenter: MainPresenter,
@@ -22,15 +25,15 @@ class MainHolder(
         holder.tv_countview?.setText("${model.count_view}")
 
         when (lang_id) {
-            1 -> {
+            lang_uz -> {
                 holder.tv_title?.setText("${model.uz_title}")
                 holder.tv_description?.setText("${model.uz_description}")
             }
-            2 -> {
+            lang_ru -> {
                 holder.tv_title?.setText("${model.ru_title}")
                 holder.tv_description?.setText("${model.ru_description}")
             }
-            3 -> {
+            lang_en -> {
                 holder.tv_title?.setText("${model.en_title}")
                 holder.tv_description?.setText("${model.en_description}")
             }

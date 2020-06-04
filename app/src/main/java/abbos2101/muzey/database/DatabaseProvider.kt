@@ -12,7 +12,6 @@ class DatabaseProvider {
                 instance = Room.databaseBuilder(ctx, MyDatabase::class.java, "$baseName")
                     .createFromAsset("$baseName")
                     .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
                     .build()
             }
             return instance!!
