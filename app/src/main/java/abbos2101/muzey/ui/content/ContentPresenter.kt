@@ -1,9 +1,7 @@
 package abbos2101.muzey.ui.content
 
 import abbos.uzeu.database.DatabaseProvider
-import abbos2101.muzey.common.common_model
-import abbos2101.muzey.common.common_position
-import abbos2101.muzey.common.isAssetExists
+import abbos2101.muzey.common.*
 import abbos2101.muzey.database.model.ContentModel
 import android.content.Context
 
@@ -50,11 +48,7 @@ class ContentPresenter(
         DatabaseProvider.instance(ctx).databaseDao().updateMainList(common_model!!)
     }
 
-//    fun setVisibleGallery(visible: Int) {
-//        contentAction.onVisibleGallery(visible)
-//    }
-
-    fun itemGalleryClick(){
+    fun itemGalleryClick() {
         val list: ArrayList<String> = ArrayList()
         var img = 1
         while (true) {
@@ -65,5 +59,27 @@ class ContentPresenter(
             } else break
         }
         contentAction.onItemGalleryClick(list)
+    }
+
+    fun setLanguage(language_id: Int) {
+        lang_id = language_id
+        var title = ""
+        var description = ""
+
+        when (language_id) {
+            lang_uz -> {
+                title = common_model!!.uz_title
+                description = common_model!!.uz_description
+            }
+            lang_ru -> {
+                title = common_model!!.ru_title
+                description = common_model!!.ru_description
+            }
+            lang_en -> {
+                title = common_model!!.en_title
+                description = common_model!!.en_description
+            }
+        }
+        contentAction.onChangeLanguage(language_id, title, description)
     }
 }

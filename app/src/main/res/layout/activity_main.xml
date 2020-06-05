@@ -15,7 +15,7 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/content_tv_title"
+            android:id="@+id/main_tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="O'ZBEKISTON TARIXI DAVLAT MUZEYINING TOSHKENT MUZEYI FILIALI"
@@ -44,7 +44,7 @@
             android:id="@+id/main_img_gallery"
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
+            android:layout_margin="6dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:src="@drawable/bottom_gallery" />
@@ -53,7 +53,7 @@
             android:id="@+id/main_img_uz"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="6dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:src="@drawable/bottom_uz" />
@@ -62,7 +62,7 @@
             android:id="@+id/main_img_ru"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="6dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:src="@drawable/bottom_ru" />
@@ -71,7 +71,7 @@
             android:id="@+id/main_img_en"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="6dp"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:src="@drawable/bottom_en" />

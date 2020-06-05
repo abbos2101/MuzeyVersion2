@@ -9,10 +9,7 @@ import abbos2101.muzey.ui.view.ViewActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_content.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ContentActivity : AppCompatActivity(), ContentAction {
@@ -39,9 +36,9 @@ class ContentActivity : AppCompatActivity(), ContentAction {
 
     private fun setEvent() {
         content_img_back.setOnClickListener { finish() }
-        content_img_uz.setOnClickListener { mainAdapter.setLanguage(lang_uz) }
-        content_img_ru.setOnClickListener { mainAdapter.setLanguage(lang_ru) }
-        content_img_en.setOnClickListener { mainAdapter.setLanguage(lang_en) }
+        content_img_uz.setOnClickListener { presenter.setLanguage(lang_uz) }
+        content_img_ru.setOnClickListener { presenter.setLanguage(lang_ru) }
+        content_img_en.setOnClickListener { presenter.setLanguage(lang_en) }
     }
 
     override fun onUpdateMainList(newList: ArrayList<ContentModel>) {
@@ -60,5 +57,11 @@ class ContentActivity : AppCompatActivity(), ContentAction {
     override fun onItemGalleryClick(newList: ArrayList<String>) {
         val intent = Intent(this, ViewActivity::class.java).putExtra("list", newList)
         startActivity(intent)
+    }
+
+    override fun onChangeLanguage(language_id: Int, title: String, description: String) {
+        mainAdapter.setLanguage(language_id)
+        content_tv_title.setText(title)
+        content_tv_description.setText(description)
     }
 }

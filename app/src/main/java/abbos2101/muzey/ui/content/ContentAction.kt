@@ -6,5 +6,6 @@ interface ContentAction {
     fun onUpdateMainList(newList: ArrayList<ContentModel>)
     fun onUpdateGalleryList(newList: ArrayList<String>)
     fun onVisibleGallery(visible: Int)
-    fun onItemGalleryClick(newList:ArrayList<String>)
+    fun onItemGalleryClick(newList: ArrayList<String>)
+    fun onChangeLanguage(language_id: Int, title: String, description: String)
 }

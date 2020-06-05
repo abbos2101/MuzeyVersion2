@@ -1,7 +1,7 @@
 package abbos2101.muzey.ui.view
 
 import abbos2101.muzey.R
-import abbos2101.muzey.adapter.view.CustomSwipeAdapter
+import abbos2101.muzey.adapter.view.ViewAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_view.*
@@ -9,7 +9,12 @@ import kotlinx.android.synthetic.main.activity_view.*
 
 class ViewActivity : AppCompatActivity() {
     private val list by lazy { intent.getStringArrayListExtra("list") }
-    private val adapter: CustomSwipeAdapter by lazy { CustomSwipeAdapter(this, list) }
+    private val adapter: ViewAdapter by lazy {
+        ViewAdapter(
+            this,
+            list
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
