@@ -6,4 +6,5 @@ interface ContentAction {
     fun onUpdateMainList(newList: ArrayList<ContentModel>)
     fun onUpdateGalleryList(newList: ArrayList<String>)
     fun onVisibleGallery(visible: Int)
+    fun onItemGalleryClick(newList:ArrayList<String>)
 }

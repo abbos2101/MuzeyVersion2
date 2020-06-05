@@ -7,19 +7,36 @@
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/content_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="O'ZBEKISTON TARIXI DAVLAT MUZEYINING TOSHKENT MUZEYI FILIALI"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:spanCount="1"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         tools:listitem="@layout/item_main" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@android:color/white"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:orientation="horizontal">
 

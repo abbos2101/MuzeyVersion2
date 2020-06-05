@@ -50,7 +50,20 @@ class ContentPresenter(
         DatabaseProvider.instance(ctx).databaseDao().updateMainList(common_model!!)
     }
 
-    fun setVisibleGallery(visible: Int) {
-        contentAction.onVisibleGallery(visible)
+//    fun setVisibleGallery(visible: Int) {
+//        contentAction.onVisibleGallery(visible)
+//    }
+
+    fun itemGalleryClick(){
+        val list: ArrayList<String> = ArrayList()
+        var img = 1
+        while (true) {
+            val imgAssetsUrl = "image/items/item${common_position + 1}/gallery/img${img}.jpg"
+            if (isAssetExists(ctx, imgAssetsUrl)) {
+                list.add(imgAssetsUrl)
+                img++
+            } else break
+        }
+        contentAction.onItemGalleryClick(list)
     }
 }

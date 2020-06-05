@@ -9,5 +9,6 @@
         android:id="@+id/item_content_gallery_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/img" />
+        android:scaleType="fitXY"
+        android:src="@drawable/img" />
 </androidx.cardview.widget.CardView>

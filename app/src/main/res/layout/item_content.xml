@@ -11,11 +11,12 @@
         android:layout_margin="15dp"
         android:orientation="vertical">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/item_content_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/img" />
+            android:scaleType="centerInside"
+            android:src="@drawable/img" />
 
         <TextView
             android:id="@+id/item_content_tv"

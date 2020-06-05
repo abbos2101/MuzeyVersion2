@@ -5,6 +5,7 @@ import abbos2101.muzey.R
 import abbos2101.muzey.common.*
 import abbos2101.muzey.ui.main.MainPresenter
 import android.view.animation.AnimationUtils
+import com.squareup.picasso.Picasso
 
 class MainHolder(
     private val presenter: MainPresenter,
@@ -13,9 +14,11 @@ class MainHolder(
 
     fun bindHolder(holder: MainAdapter.ViewHolder, position: Int) {
         val model = list[position]
-        val drawableImg = getDrawableFromAssets(presenter.ctx, "${model.item_image}")
+        Picasso
+            .get()
+            .load("file:///android_asset/${model.item_image}")
+            .into(holder.img)
 
-        holder.img?.setBackgroundDrawable(drawableImg)
         holder.ll?.startAnimation(AnimationUtils.loadAnimation(presenter.ctx, R.anim.alpha))
         holder.ll?.setOnClickListener { presenter.itemClick(model, position) }
         holder.tv_countview?.setText("${model.count_view}")
